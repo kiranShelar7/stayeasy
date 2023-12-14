@@ -2,6 +2,7 @@ import express  from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import appRouter from "./routes/index.js";
+import cookieParser from "cookie-parser";
 
 // Configure env 
 dotenv.config()
@@ -10,6 +11,7 @@ dotenv.config()
 const app = express()
 
 // using middlewares to ease in routing & using json data
+app.use(cookieParser())
 app.use(express.json())
 app.use("/api/v1",appRouter)
 
